@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+PhagsPa&display=swap" rel="stylesheet">
+    <!--font-->
+</head>
+<body>
+    <div>
+        <span id="hora"></span>
+    </div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: rgba(0, 0, 0, 0);
+            font-family: "Noto Sans PhagsPa", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        span {
+            font-size: 20rem;
+            color: white;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function actualizarHora() {
+                const opciones = { timeZone: "America/Argentina/Buenos_Aires", hour: "2-digit", minute: "2-digit", hour12: false};
+                const horaActual = new Intl.DateTimeFormat("es-AR", opciones).format(new Date());
+                document.getElementById("hora").textContent = horaActual;
+            }
+            setInterval(actualizarHora, 1000);
+            actualizarHora();
+        });
+    </script>
+</html>
